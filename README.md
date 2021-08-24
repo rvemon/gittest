@@ -1,27 +1,43 @@
-# Test
+# Git Commits On Project
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 11.0.5.
 
-## Development server
+The goal of this project is to create an app that can show commit history on the main page you are working.
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+To do so, I create a project using Angular and a main page that includes a component (at the bottom) that shows the previous commits, the author of this commits and the comment made at the moment the commit was created, all this grouped by branch.
 
-## Code scaffolding
+This component can be used in any other pages to get the same result.
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+## Prerequisites
+NodeJs and Angular installed.
 
 ## Build
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
+To run this project you need to clone it first.
+Then, using a terminal inside /gittest you need to run the following commands:
 
-## Running unit tests
+  npm install (to install the dependencies /node-modules folder)
+  
+  ng serve (to run the project)
+  
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+## End-to-end tests
+This project needs you to specify your username to show your commits
 
-## Running end-to-end tests
+you can easily do this going to gittest/src/assets/jsonconfig.json.
 
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
+this file have the structure:
+{
+    "name": "rvemon"
+}
+
+where "name" is your username, by default it contains my username.
+
+To see the project you need to go to localhost:[port] in a browser, the [port] is shown in the terminal after you run "ng serve"
+
+example: localhost:4200
+
 
 ## Further help
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+You can contact me to get help on how to run the proyect or for any other observation. 
