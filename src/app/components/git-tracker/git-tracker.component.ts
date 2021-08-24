@@ -11,13 +11,35 @@ export class GitTrackerComponent implements OnInit {
 
   public branches_names: string[];
   public commits: any[];
+  public name: string = '';
 
   constructor(private _githistory: GittestService) { 
     
   }
 
   ngOnInit(): void {
+    this.getUser();
+  }
 
+  getUser(){
+    this._githistory.getUser().subscribe(
+      response =>{
+        console.log(response);
+        this.name = response.name;
+        this.setUser(this.name);
+      },
+      error =>{
+        console.log(error);
+      }
+    );
+  }
+
+  setUser(name){
+    this._githistory.setUser(name);
+    this.getBranches();
+  }
+
+  getBranches(){
     this._githistory.getBranches().subscribe(
       response =>{
         console.log(response);
@@ -26,10 +48,10 @@ export class GitTrackerComponent implements OnInit {
       },
       error =>{
         console.log(error);
+        this.branches_names = [];
       }
     );
   }
-
 
   getCommits(response){
     var arr = [];

@@ -1,10 +1,17 @@
 
+<div *ngIf="!branches_names?.length">El Usuario: <{{name}}> no existe dentro del proyecto de Git</div>
 
 
-<div *ngFor="let branch of branches_names; let i=index;">
-    <div (click)="collapse.toggle()" style="color:red; font-weight:bold;">{{branch.name}}</div>
-
-    <div #collapse="ngbCollapse"  [(ngbCollapse)]="isCollapsed">
+<div *ngFor="let branch of branches_names; let i=index;" style="margin-left: 1%;">
+    <div *ngIf="i==0">
+        <div style="font-weight:bold;">Historial de Commits</div>
+        <div>---------------------------------------------------------------------------</div>
+        <div class="btn-primary" (click)="collapse.toggle()" style="font-weight:bold; cursor:pointer; width:25%; border-radius:5px; text-align:center;">Mostrar/Ocultar commits</div>
+        <div style="font-weight: bold;">Branchs:</div>
+    </div>
+    
+    <div style="color:red; font-weight:bold;">{{branch.name}}</div>
+    <div #collapse="ngbCollapse"  [(ngbCollapse)]="!isCollapsed">
         <div *ngFor="let commit of commits[i]">
             <p style="font-weight: bold;">commit</p>
             <p>Autor: {{commit.commit.author.name}}</p>
