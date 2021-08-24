@@ -2,7 +2,7 @@
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 11.0.5.
 
-The goal of this project is to create an app that can show commit history on the main page you are working.
+The goal of this project is to create an app that can show commit history using GitHub API on the main page you are working.
 
 To do so, I create a project using Angular and a main page that includes a component (at the bottom) that shows the previous commits, the author of this commits and the comment made at the moment the commit was created, all this grouped by branch.
 
