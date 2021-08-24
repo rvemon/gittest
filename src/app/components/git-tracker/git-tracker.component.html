@@ -1,1 +1,7 @@
-<p>git-tracker works!</p>
+
+<div class="button" id="1-title"(click)="collapse.toggle()" [attr.aria-expanded]="!isCollapsed" aria-controls="collapse-1">NOMBRE DEL COMMIT</div>
+
+<div #collapse="ngbCollapse" [(ngbCollapse)]="isCollapsed" id="collapse-1">
+    <p>Commit Info.</p>
+    <p></p>
+</div>
