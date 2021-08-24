@@ -37,7 +37,7 @@ To see the project you need to go to localhost:[port] in a browser, the [port] i
 
 example: localhost:4200
 
-Finally to see the changes you need to refresh the page after the commit is done.
+Finally to see the changes you need to refresh the page after a commit is done.
 
 ## Further help
 
