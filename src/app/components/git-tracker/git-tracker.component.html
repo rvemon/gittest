@@ -1,7 +1,14 @@
 
-<div class="button" id="1-title"(click)="collapse.toggle()" [attr.aria-expanded]="!isCollapsed" aria-controls="collapse-1">NOMBRE DEL COMMIT</div>
 
-<div #collapse="ngbCollapse" [(ngbCollapse)]="isCollapsed" id="collapse-1">
-    <p>Commit Info.</p>
-    <p></p>
+
+<div *ngFor="let branch of branches_names; let i=index;">
+    <div (click)="collapse.toggle()" style="color:red; font-weight:bold;">{{branch.name}}</div>
+
+    <div #collapse="ngbCollapse"  [(ngbCollapse)]="isCollapsed">
+        <div *ngFor="let commit of commits[i]">
+            <p style="font-weight: bold;">commit</p>
+            <p>Autor: {{commit.commit.author.name}}</p>
+            <p>Commit: {{commit.commit.message}}</p>
+        </div>
+    </div>
 </div>

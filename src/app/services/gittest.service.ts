@@ -11,8 +11,12 @@ export class GittestService{
     constructor(private _http: HttpClient){
         this.url = 'https://api.github.com/repos/rvemon/gittest';
     }
+
+    getBranches():Observable<any>{
+        return this._http.get(this.url+'/branches')
+    }
     
-    getAccessToken():Observable<any>{
-        return this._http.get(this.url+'/commits')
+    getCommits(branch):Observable<any>{
+        return this._http.get(this.url+'/commits?sha='+branch)
     }
 }

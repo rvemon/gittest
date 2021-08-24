@@ -9,20 +9,45 @@ import { GittestService } from 'src/app/services/gittest.service';
 })
 export class GitTrackerComponent implements OnInit {
 
+  public branches_names: string[];
+  public commits: any[];
+
   constructor(private _githistory: GittestService) { 
     
   }
 
   ngOnInit(): void {
 
-    this._githistory.getAccessToken().subscribe(
+    this._githistory.getBranches().subscribe(
       response =>{
         console.log(response);
+        this.branches_names = response;
+        this.getCommits(response);
       },
       error =>{
         console.log(error);
       }
     );
+  }
+
+
+  getCommits(response){
+    var arr = [];
+
+    for(let i=0;i<response.length; i++){
+      let branch = response[i].name;
+      this._githistory.getCommits(branch).subscribe(
+        response =>{
+          console.log(response);
+          arr.push(response);
+  
+        },
+        error =>{
+          console.log(error);
+        }
+      );
+    }
+    this.commits = arr;
   }
 
 }
